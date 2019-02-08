@@ -43,6 +43,19 @@ router.post('/shorturl/new', (req, res)=>{
 
 //get 
 router.get('/shorturl/:num', (req, res)=>{
-    res.send(req.params.num);
+    
+
+    Url.findOne({sId: req.params.num})
+    .then(urlObj =>{
+        console.log(urlObj === null);
+        if(urlObj === null){
+            res.end();
+        }else{
+            res.redirect(urlObj.url);
+        }
+        
+    })
+    .catch(err => console.log(err));
+    
 });
 module.exports = router;
