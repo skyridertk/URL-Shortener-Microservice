@@ -40,4 +40,9 @@ router.post('/shorturl/new', (req, res)=>{
     //Url.create(req.)
 
 });
+
+//get 
+router.get('/shorturl/:num', (req, res)=>{
+    res.send(req.params.num);
+});
 module.exports = router;
