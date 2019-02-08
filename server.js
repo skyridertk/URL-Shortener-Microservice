@@ -10,9 +10,13 @@ var app = express();
 
 // Basic Configuration 
 var port = process.env.PORT || 3000;
+require('dotenv').config();
 
 /** this project needs a db !! **/ 
-// mongoose.connect(process.env.MONGOLAB_URI);
+mongoose.connect(process.env.MONGOLAB_URI, { useNewUrlParser: true })
+.then(()=> console.log('Mongo DB is connected'))
+.catch(err => console.log("Database not connected: "+err));
+mongoose.Promise = global.Promise;
 
 app.use(cors());
 
