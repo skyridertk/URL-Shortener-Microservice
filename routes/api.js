@@ -49,7 +49,7 @@ router.get('/shorturl/:num', (req, res)=>{
     .then(urlObj =>{
         console.log(urlObj === null);
         if(urlObj === null){
-            res.end();
+            res.send( {"error":"invalid URL"} );
         }else{
             res.redirect(urlObj.url);
         }
