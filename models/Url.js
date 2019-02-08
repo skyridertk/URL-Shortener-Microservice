@@ -9,8 +9,11 @@ const UrlSchema = new Schema({
     },
     sId:{
         type: Number,
-        unique: true,
         default: 0
+    },
+    createdOn:{
+        type: Date,
+        default: new Date().toLocaleString()
     }
 });
 
